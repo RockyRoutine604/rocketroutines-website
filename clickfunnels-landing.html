@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funnel Systems — Rocket Routines × ClickFunnels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #0A1628;
+    --navymid:  #112240;
+    --navylit:  #1E3A5F;
+    --orange:   #F5702A;
+    --orangelt: #FF8C4B;
+    --white:    #F8FAFC;
+    --slate:    #64748B;
+    --silver:   #CBD5E1;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(245,112,42,0.1);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-wordmark span { color: var(--orange); }
+
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--orange); }
+
+  .nav-cta-pill {
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta-pill:hover { background: var(--orangelt); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse, rgba(245,112,42,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-left { position: relative; z-index: 1; }
+
+  .partner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,112,42,0.1);
+    border: 0.5px solid rgba(245,112,42,0.3);
+    border-radius: 20px;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .partner-badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.3); }
+  }
+
+  .partner-badge-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    text-transform: uppercase;
+  }
+
+  .hero-h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(38px, 4.5vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .hero-h1 .accent { color: var(--orange); }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+    animation: fadeUp 0.5s ease 0.2s both;
+  }
+
+  .hero-sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  .hero-private-note {
+    background: rgba(245,112,42,0.06);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    animation: fadeUp 0.5s ease 0.25s both;
+  }
+
+  .hero-private-note strong { color: rgba(245,112,42,0.9); font-weight: 500; }
+
+  .hero-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.5s ease 0.3s both;
+  }
+
+  .hero-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .bullet-check {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    background: rgba(245,112,42,0.12);
+    border: 0.5px solid rgba(245,112,42,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.5s ease 0.35s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--orangelt); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.18);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); background: rgba(245,112,42,0.08); }
+
+  /* ── HERO FORM ── */
+  .hero-right {
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.6s ease 0.15s both;
+  }
+
+  .lead-form-card {
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lead-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  }
+
+  .form-card-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 20px;
+  }
+
+  .form-card-inner { position: relative; z-index: 1; }
+
+  .form-card-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--orange);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .form-card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .form-card-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .form-field {
+    margin-bottom: 14px;
+  }
+
+  .form-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+
+  .form-field input,
+  .form-field select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-field select {
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23F5702A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  .form-field select option { background: var(--navymid); }
+
+  .form-field input::placeholder { color: rgba(255,255,255,0.2); }
+  .form-field input:focus,
+  .form-field select:focus { border-color: var(--orange); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    padding: 15px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .form-submit:hover { background: var(--orangelt); transform: translateY(-1px); }
+
+  .form-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── PIPELINE VISUAL ── */
+  #pipeline {
+    padding: 100px 5%;
+    background: var(--navymid);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #pipeline::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .pipeline-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-top: 12px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 14px auto 0;
+  }
+
+  .pipeline-stages {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pipeline-stage {
+    flex: 1;
+    position: relative;
+  }
+
+  .stage-connector {
+    position: absolute;
+    top: 36px;
+    right: -1px;
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(180deg, transparent, rgba(245,112,42,0.5), transparent);
+    z-index: 2;
+  }
+
+  .stage-inner {
+    background: rgba(10,22,40,0.6);
+    border: 0.5px solid rgba(245,112,42,0.12);
+    border-radius: 14px;
+    padding: 28px 24px;
+    margin: 0 8px;
+    height: 100%;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .pipeline-stage:hover .stage-inner {
+    border-color: rgba(245,112,42,0.35);
+    background: rgba(10,22,40,0.9);
+  }
+
+  .stage-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+
+  .stage-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(245,112,42,0.1);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .stage-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .stage-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  .pipeline-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    color: rgba(245,112,42,0.4);
+    flex-shrink: 0;
+    align-self: center;
+    margin-top: -20px;
+  }
+
+  /* ── INCLUDED ── */
+  #included {
+    padding: 100px 5%;
+    background: var(--navy);
+  }
+
+  .included-header {
+    margin-bottom: 56px;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .included-card {
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.12);
+    border-radius: 14px;
+    padding: 32px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .included-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .included-card:hover { border-color: rgba(245,112,42,0.35); transform: translateY(-3px); }
+  .included-card:hover::before { transform: scaleX(1); }
+
+  .included-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    background: rgba(245,112,42,0.1);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    padding: 3px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .included-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .included-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.75;
+  }
+
+  /* ── PRICING ── */
+  #pricing {
+    padding: 100px 5%;
+    background: var(--navymid);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #pricing::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pricing-card {
+    background: var(--navy);
+    border: 0.5px solid rgba(245,112,42,0.15);
+    border-radius: 18px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .pricing-card:hover { transform: translateY(-4px); }
+
+  .pricing-card.featured {
+    border-color: rgba(245,112,42,0.45);
+  }
+
+  .pricing-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+    background: var(--orange);
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .pricing-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  .pricing-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .pricing-amount {
+    padding: 20px 0;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    margin-bottom: 24px;
+  }
+
+  .pricing-setup {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .pricing-setup-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .pricing-monthly {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .pricing-monthly strong {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--orange);
+    letter-spacing: -0.01em;
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  .check-dot {
+    width: 16px; height: 16px;
+    border-radius: 3px;
+    background: rgba(245,112,42,0.12);
+    border: 0.5px solid rgba(245,112,42,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 13px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .pricing-cta:hover { background: var(--orangelt); }
+
+  .pricing-cta.ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .pricing-cta.ghost:hover { border-color: var(--orange); background: rgba(245,112,42,0.08); }
+
+  /* ── PARTNER STRIP ── */
+  #partner {
+    padding: 56px 5%;
+    background: #060E1A;
+    border-top: 0.5px solid rgba(245,112,42,0.08);
+    border-bottom: 0.5px solid rgba(245,112,42,0.08);
+  }
+
+  .partner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .partner-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .partner-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .partner-logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .partner-logo-text span { color: var(--orange); }
+
+  .partner-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    max-width: 320px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ── BOTTOM CTA ── */
+  #cta {
+    padding: 120px 5%;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,112,42,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .cta-h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(30px, 3.5vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .cta-form {
+    display: flex;
+    gap: 12px;
+    max-width: 460px;
+    margin: 0 auto 16px;
+  }
+
+  .cta-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .cta-input::placeholder { color: rgba(255,255,255,0.25); }
+  .cta-input:focus { border-color: var(--orange); }
+
+  .cta-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E1A;
+    padding: 40px 5%;
+    border-top: 0.5px solid rgba(245,112,42,0.1);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-wordmark span { color: var(--orange); }
+
+  .footer-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    #hero {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .pipeline-stages {
+      flex-direction: column;
+    }
+
+    .pipeline-arrow { display: none; }
+
+    .stage-connector { display: none; }
+
+    .included-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .included-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <a href="rocket-routines-homepage.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+      <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="56" y1="0" x2="56" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="56" cy="14" r="3" fill="#F5702A"/>
+      <path d="M53 11 L59 11 L56 7Z" fill="#F5702A"/>
+    </svg>
+    <div class="nav-wordmark">Rocket<span>Routines</span></div>
+  </a>
+
+  <a href="rocket-routines-homepage.html" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to main site
+  </a>
+
+  <a href="#cta" class="nav-cta-pill">Get started</a>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-left">
+    <div class="partner-badge">
+      <div class="partner-badge-dot"></div>
+      <span class="partner-badge-text">Affiliate Partner · ClickFunnels</span>
+    </div>
+
+    <h1 class="hero-h1">
+      Turn your traffic<br>into a <span class="accent">revenue<br>machine.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Most businesses send traffic to pages that don't convert. Rocket Routines builds <strong>high-converting ClickFunnels funnels</strong> that capture leads, close sales, and hand off seamlessly to your back-office automations — all in one connected system.
+    </p>
+
+    <div class="hero-private-note">
+      <strong>Private environment, always.</strong> We deploy a private automation environment for your business, rather than mixing your workflows with other customers. This gives you better security, cleaner support, easier backups, and stronger data separation.
+    </div>
+
+    <ul class="hero-bullets">
+      <li>
+        <div class="bullet-check">
+          <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Funnel design, build, and integration — done for you
+      </li>
+      <li>
+        <div class="bullet-check">
+          <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Connected to your CRM, email, and ops systems automatically
+      </li>
+      <li>
+        <div class="bullet-check">
+          <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Monthly retainer keeps it optimized and expanding
+      </li>
+      <li>
+        <div class="bullet-check">
+          <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        Starts at $1,500 setup + $1,500/month retainer
+      </li>
+    </ul>
+
+    <div class="hero-cta-row">
+      <a href="#lead-form" class="btn-primary">
+        Book a free strategy call
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#included" class="btn-ghost">See what's included</a>
+    </div>
+  </div>
+
+  <!-- Lead Form -->
+  <div class="hero-right" id="lead-form">
+    <div class="lead-form-card">
+      <div class="form-card-grid"></div>
+      <div class="form-card-inner">
+        <div class="form-card-eyebrow">Free strategy call</div>
+        <h2 class="form-card-title">Let's map your funnel</h2>
+        <p class="form-card-sub">30 minutes. No pitch. We'll audit your current lead flow and show you exactly what a high-converting funnel looks like for your business.</p>
+
+        <div class="form-field">
+          <label>Your name</label>
+          <input type="text" placeholder="Jane Smith">
+        </div>
+        <div class="form-field">
+          <label>Work email</label>
+          <input type="email" placeholder="jane@company.com">
+        </div>
+        <div class="form-field">
+          <label>Company / Website</label>
+          <input type="text" placeholder="company.com">
+        </div>
+        <div class="form-field">
+          <label>Monthly traffic (approx.)</label>
+          <select>
+            <option value="" disabled selected>Select a range</option>
+            <option>Under 1,000 visitors/mo</option>
+            <option>1,000 – 5,000 visitors/mo</option>
+            <option>5,000 – 20,000 visitors/mo</option>
+            <option>20,000+ visitors/mo</option>
+          </select>
+        </div>
+
+        <button class="form-submit" type="button">
+          Book the strategy call
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <p class="form-note">No commitment required. Available across North America.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PIPELINE ══════════════════ -->
+<section id="pipeline">
+  <div class="pipeline-header">
+    <div class="eyebrow">How the funnel works</div>
+    <h2 class="section-title">From first click to closed sale —<br>automated end to end</h2>
+    <p class="section-sub">Every stage is connected. When a lead moves, the system moves with them — no manual hand-offs, no dropped balls.</p>
+  </div>
+
+  <div class="pipeline-stages">
+
+    <div class="pipeline-stage">
+      <div class="stage-inner">
+        <div class="stage-num">01</div>
+        <div class="stage-icon">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="8" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+            <path d="M7 11 L10 14 L15 8" stroke="#F5702A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-title">Traffic & Ad Capture</div>
+        <div class="stage-desc">Paid ads, organic search, or social — all routed to a purpose-built landing page optimized for one action only.</div>
+      </div>
+      <div class="stage-connector"></div>
+    </div>
+
+    <div class="pipeline-arrow">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M12 6L16 10L12 14" stroke="rgba(245,112,42,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="pipeline-stage">
+      <div class="stage-inner">
+        <div class="stage-num">02</div>
+        <div class="stage-icon">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+            <path d="M4 5H18L14 13H8L4 5Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <path d="M8 13L7 18H15L14 13" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-title">Lead Capture & Qualify</div>
+        <div class="stage-desc">A ClickFunnels opt-in page collects the right info and instantly tags, scores, and segments the lead in your CRM.</div>
+      </div>
+      <div class="stage-connector"></div>
+    </div>
+
+    <div class="pipeline-arrow">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M12 6L16 10L12 14" stroke="rgba(245,112,42,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="pipeline-stage">
+      <div class="stage-inner">
+        <div class="stage-num">03</div>
+        <div class="stage-icon">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+            <rect x="3" y="5" width="16" height="12" rx="2" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+            <path d="M3 9H19" stroke="#F5702A" stroke-width="1.2"/>
+            <path d="M7 13H10" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="stage-title">Nurture Sequences</div>
+        <div class="stage-desc">Automated email and SMS sequences warm the lead with the right message at the right time — without anyone on your team lifting a finger.</div>
+      </div>
+      <div class="stage-connector"></div>
+    </div>
+
+    <div class="pipeline-arrow">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M12 6L16 10L12 14" stroke="rgba(245,112,42,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="pipeline-stage">
+      <div class="stage-inner">
+        <div class="stage-num">04</div>
+        <div class="stage-icon">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3L13.5 8.5L19.5 9L15.5 13L16.5 19L11 16L5.5 19L6.5 13L2.5 9L8.5 8.5L11 3Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="stage-title">Offer & Upsell</div>
+        <div class="stage-desc">Order pages, upsell flows, and order bumps built to maximize average order value without adding friction to the purchase.</div>
+      </div>
+      <div class="stage-connector"></div>
+    </div>
+
+    <div class="pipeline-arrow">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M12 6L16 10L12 14" stroke="rgba(245,112,42,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="pipeline-stage">
+      <div class="stage-inner">
+        <div class="stage-num">05</div>
+        <div class="stage-icon">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
+            <path d="M4 4H18V14H12L11 18L10 14H4V4Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <circle cx="8" cy="9" r="1.5" fill="#F5702A" opacity="0.7"/>
+            <circle cx="11" cy="9" r="1.5" fill="#F5702A" opacity="0.7"/>
+            <circle cx="14" cy="9" r="1.5" fill="#F5702A" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="stage-title">Ops Hand-off & Fulfillment</div>
+        <div class="stage-desc">The sale auto-triggers your back-office: CRM updated, invoice generated, onboarding sequence started. The funnel and your ops speak the same language.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ WHAT'S INCLUDED ══════════════════ -->
+<section id="included">
+  <div class="included-header">
+    <div class="eyebrow">What's included</div>
+    <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+    <p class="section-sub" style="max-width:100%;">Every Funnel Systems engagement covers design through deployment — plus the automation layer that ties your funnel to the rest of your business.</p>
+  </div>
+
+  <div class="included-grid">
+
+    <div class="included-card">
+      <div class="included-tag">Design</div>
+      <div class="included-title">Funnel Design & Copywriting</div>
+      <div class="included-desc">We design and write every page in the funnel — opt-in, sales, upsell, confirmation. Built for conversion, not just aesthetics.</div>
+    </div>
+
+    <div class="included-card">
+      <div class="included-tag">Build</div>
+      <div class="included-title">ClickFunnels Build & Configuration</div>
+      <div class="included-desc">Full technical buildout inside ClickFunnels — domains, payment integrations, order forms, confirmation sequences, and A/B split tests.</div>
+    </div>
+
+    <div class="included-card">
+      <div class="included-tag">Integration</div>
+      <div class="included-title">CRM & Email Platform Connection</div>
+      <div class="included-desc">Every lead auto-syncs to your CRM and email platform, tagged and segmented correctly. No manual data entry, no gaps.</div>
+    </div>
+
+    <div class="included-card">
+      <div class="included-tag">Automation</div>
+      <div class="included-title">Nurture Sequence Build</div>
+      <div class="included-desc">We build the email and SMS sequences that follow up with every lead automatically — whether they buy, don't buy, or abandon mid-funnel.</div>
+    </div>
+
+    <div class="included-card">
+      <div class="included-tag">Ops</div>
+      <div class="included-title">Back-office Automation Hand-off</div>
+      <div class="included-desc">Sales trigger your ops: invoicing, onboarding, task creation, notifications. The funnel and your internal systems work as one. We deploy a private automation environment for your business, rather than mixing your workflows with other customers. This gives you better security, cleaner support, easier backups, and stronger data separation.</div>
+    </div>
+
+    <div class="included-card">
+      <div class="included-tag">Ongoing</div>
+      <div class="included-title">Ongoing Maintenance & Optimisation</div>
+      <div class="included-desc">Monthly retainer covers monitoring, conversion reporting, and continuous improvement. We track what's working and expand what isn't. Your private environment stays maintained, backed up, and separated from other clients — always.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ PRICING ══════════════════ -->
+<section id="pricing">
+  <div class="pricing-header">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="section-title">Straightforward pricing.<br>No surprises.</h2>
+    <p class="section-sub">Setup covers the build. Retainer keeps it growing.</p>
+  </div>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <div class="pricing-name">Funnel Systems</div>
+      <div class="pricing-tagline">For businesses ready to build their first high-converting funnel and connect it to their ops.</div>
+
+      <div class="pricing-amount">
+        <div class="pricing-setup">One-time setup from</div>
+        <div class="pricing-setup-val">$1,500</div>
+        <div class="pricing-monthly">Then <strong>$1,500</strong> / month retainer</div>
+      </div>
+
+      <ul class="pricing-features">
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Full funnel design & ClickFunnels build
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          CRM & email platform integration
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Nurture sequence (email + SMS)
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Back-office automation hand-off
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Monthly conversion reporting
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Private automation environment
+        </li>
+      </ul>
+
+      <a href="#cta" class="pricing-cta ghost">Book a strategy call</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most popular</div>
+      <div class="pricing-name">Funnel + Automation</div>
+      <div class="pricing-tagline">Funnel Systems combined with a full automation retainer. The complete growth system.</div>
+
+      <div class="pricing-amount">
+        <div class="pricing-setup">One-time setup from</div>
+        <div class="pricing-setup-val">$4,000</div>
+        <div class="pricing-monthly">Then <strong>$3,500</strong> / month retainer</div>
+      </div>
+
+      <ul class="pricing-features">
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Everything in Funnel Systems
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Full operations automation retainer
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          CRM, invoicing, onboarding automation
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Quarterly automation expansion
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Dedicated ops partner — embedded in your team
+        </li>
+        <li>
+          <div class="check-dot"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Private environment, isolated per client
+        </li>
+      </ul>
+
+      <a href="#cta" class="pricing-cta">Book a strategy call</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ PARTNER STRIP ══════════════════ -->
+<section id="partner">
+  <div class="partner-inner">
+    <div class="partner-label">Affiliate partner</div>
+    <div class="partner-divider"></div>
+    <div class="partner-logo-text">Click<span>Funnels</span></div>
+    <div class="partner-divider"></div>
+    <div class="partner-note">Rocket Routines is an affiliate partner of ClickFunnels. We build and manage funnels on their platform — and recommend it because it's the best tool for the job.</div>
+  </div>
+</section>
+
+<!-- ══════════════════ BOTTOM CTA ══════════════════ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="eyebrow" style="margin-bottom:16px;">Ready to start?</div>
+    <h2 class="cta-h2">Book your free<br>funnel strategy call</h2>
+    <p class="cta-sub">30 minutes. We'll map your lead flow, show you what a high-converting funnel looks like for your business, and give you a written output — no strings attached.</p>
+
+    <div class="cta-form">
+      <input type="email" class="cta-input" placeholder="Your work email address">
+      <a href="#" class="btn-primary" style="white-space:nowrap;">
+        Book the call
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <p class="cta-note">No commitment required. Available across North America.</p>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark">Rocket<span>Routines</span></div>
+      <div class="footer-tagline">Growth Systems Integrator · North America</div>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="rocket-routines-homepage.html">Homepage</a></li>
+      <li><a href="rocket-routines-homepage.html#services">Services</a></li>
+      <li><a href="rocket-routines-homepage.html#audit">Free audit</a></li>
+    </ul>
+
+    <div class="footer-copy">© 2026 Rocket Routines. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.included-card, .pricing-card, .stage-inner').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+    observer.observe(el);
+  });
+
+  // Nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '56px' : '68px';
+  });
+</script>
+</body>
+</html>
