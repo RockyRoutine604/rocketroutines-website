@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Rocket Routines</title>
+<meta name="description" content="Rocket Routines is led by Colin Edwards, a Vancouver-based growth systems integrator with 20+ years building e-commerce, ERP, and automation systems for businesses across North America.">
+<!-- Open Graph / LinkedIn / Social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rocket Routines">
+<meta property="og:url" content="https://rocketroutines.com/about.html">
+<meta property="og:title" content="About — Rocket Routines">
+<meta property="og:description" content="Rocket Routines is led by Colin Edwards, a Vancouver-based growth systems integrator with 20+ years building e-commerce, ERP, and automation systems for businesses across North America.">
+<meta property="og:image" content="https://rocketroutines.com/og-image.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Rocket Routines">
+<meta name="twitter:description" content="Rocket Routines is led by Colin Edwards, a Vancouver-based growth systems integrator with 20+ years building e-commerce, ERP, and automation systems for businesses across North America.">
+<meta name="twitter:image" content="https://rocketroutines.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #0A1628;
+    --navymid:  #112240;
+    --navylit:  #1E3A5F;
+    --orange:   #F5702A;
+    --orangelt: #FF8C4B;
+    --white:    #F8FAFC;
+    --slate:    #64748B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--orangelt); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--orange); background: rgba(245,112,42,0.08); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(245,112,42,0.1);
+    transition: height 0.3s;
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-wordmark { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.03em; color: var(--white); line-height: 1; }
+  .nav-wordmark span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; letter-spacing: 0.01em; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--white); }
+  .nav-cta { background: var(--orange) !important; color: white !important; font-family: 'Syne', sans-serif; font-weight: 700 !important; font-size: 13px !important; padding: 9px 20px; border-radius: 6px; }
+  .nav-cta:hover { background: var(--orangelt) !important; }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 120px 5% 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ── INTRO SPLIT ── */
+  .intro-split {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 80px;
+  }
+
+  .intro-left { }
+
+  .intro-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .hero-line { width: 32px; height: 1px; background: var(--orange); }
+
+  .intro-h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(38px, 4.5vw, 60px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    animation: fadeUp 0.5s ease 0.08s both;
+  }
+
+  .intro-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--orange);
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s ease 0.12s both;
+  }
+
+  .intro-body {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s ease 0.16s both;
+  }
+  .intro-body strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  .intro-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s ease 0.2s both;
+  }
+
+  .intro-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    padding: 5px 11px;
+  }
+
+  .intro-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.5s ease 0.24s both;
+  }
+
+  /* Right: avatar block */
+  .intro-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .avatar-block {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  /* Circuit avatar placeholder */
+  .avatar-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .avatar-circuit {
+    position: absolute; inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-initials {
+    position: relative;
+    z-index: 1;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 64px;
+    letter-spacing: -0.04em;
+    color: rgba(245,112,42,0.2);
+    user-select: none;
+  }
+
+  .avatar-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(10,22,40,0.95), transparent);
+  }
+
+  .avatar-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 3px;
+  }
+
+  .avatar-title {
+    font-size: 12px;
+    color: var(--orange);
+    letter-spacing: 0.06em;
+  }
+
+  .avatar-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 4px;
+  }
+
+  /* Stats row below avatar */
+  .avatar-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .avatar-stat {
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+
+  .avatar-stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .avatar-stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── WHY I STARTED ── */
+  .why-section {
+    background: var(--navymid);
+    padding: 80px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .why-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .why-left {
+    position: sticky;
+    top: 100px;
+  }
+
+  .why-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(24px, 2.5vw, 34px);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+
+  .why-label .accent { color: var(--orange); }
+
+  .why-quote {
+    padding: 20px 24px;
+    border-left: 2px solid var(--orange);
+    background: rgba(245,112,42,0.06);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .why-quote-text {
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+  }
+
+  .why-right { }
+
+  .why-para {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+
+  .why-para:last-child { margin-bottom: 0; }
+
+  .why-para strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* ── CAREER TIMELINE ── */
+  .career-section {
+    background: var(--navy);
+    padding: 80px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .career-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .section-header { margin-bottom: 52px; position: relative; z-index: 1; }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-top: 10px;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-top: 14px;
+  }
+
+  .timeline {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 20px;
+    bottom: 20px;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      var(--orange),
+      rgba(245,112,42,0.3) 60%,
+      rgba(245,112,42,0.05)
+    );
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .tl-node {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(245,112,42,0.1);
+    border: 1px solid rgba(245,112,42,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+  }
+
+  .tl-node.current {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+
+  .tl-content { padding-top: 8px; }
+
+  .tl-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 4px;
+  }
+
+  .tl-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .tl-company {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .tl-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .tl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tl-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+
+  .tl-tag.orange {
+    color: rgba(245,112,42,0.75);
+    background: rgba(245,112,42,0.07);
+    border-color: rgba(245,112,42,0.18);
+  }
+
+  /* ── TECH STACK ── */
+  .stack-section {
+    background: var(--navymid);
+    padding: 80px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stack-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stack-card {
+    background: var(--navy);
+    border: 0.5px solid rgba(245,112,42,0.1);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .stack-card:hover {
+    border-color: rgba(245,112,42,0.35);
+    transform: translateY(-3px);
+  }
+
+  .stack-cat {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 10px;
+  }
+
+  .stack-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .stack-desc {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /* ── VALUES ── */
+  .values-section {
+    background: var(--navy);
+    padding: 80px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .values-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .value-card {
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.1);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s;
+  }
+
+  .value-card:hover { border-color: rgba(245,112,42,0.3); }
+
+  .value-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .value-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .value-body {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.75;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 5%;
+  }
+
+  .cta-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse, rgba(245,112,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .cta-left { }
+
+  .cta-h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3.5vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .cta-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .cta-right {
+    background: var(--navymid);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+
+  .cta-right-inner { position: relative; z-index: 1; }
+
+  .cta-right h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    color: var(--orange);
+  }
+
+  .audit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .audit-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.55;
+  }
+
+  .audit-check {
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    background: rgba(245,112,42,0.15);
+    border: 0.5px solid rgba(245,112,42,0.35);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  footer { background: #060E1A; padding: 44px 5%; border-top: 0.5px solid rgba(245,112,42,0.1); }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-wordmark { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: -0.02em; color: rgba(255,255,255,0.5); }
+  .footer-wordmark span { color: var(--orange); }
+  .footer-tagline { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--orange); }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+      <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="56" x2="64" y2="56" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="56" y1="0" x2="56" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <path d="M14 56 L14 42 L28 42 L28 28 L42 28 L42 14" stroke="#F5702A" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+      <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="28" cy="42" r="2.2" fill="#F5702A" opacity="0.5"/>
+      <circle cx="42" cy="28" r="2.2" fill="#F5702A" opacity="0.75"/>
+      <circle cx="56" cy="14" r="3" fill="#F5702A"/>
+      <path d="M53 11 L59 11 L56 7Z" fill="#F5702A"/>
+    </svg>
+    <div class="nav-wordmark">Rocket<span>Routines</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="free-audit.html" class="nav-cta">Free audit</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════ INTRO SPLIT ══════════ -->
+<div class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="intro-split">
+
+    <!-- Left: bio intro -->
+    <div class="intro-left">
+      <div class="intro-eyebrow">
+        <div class="hero-line"></div>
+        <span class="eyebrow">About</span>
+      </div>
+      <h1 class="intro-h1">Colin Edwards</h1>
+      <div class="intro-role">Founder & Lead Systems Integrator · Rocket Routines · Vancouver, BC</div>
+      <p class="intro-body">
+        Rocket Routines is a <strong>growth systems consultancy</strong> built on 20+ years of technical experience across e-commerce, ERP integration, and operations automation. Our team designs and builds end-to-end automation systems for 30–200 person businesses across North America — <strong>from lead generation through to operational infrastructure</strong> — so your people can focus on the work only humans can do.
+      </p>
+      <div class="intro-tags">
+        <span class="intro-tag">Vancouver, BC</span>
+        <span class="intro-tag">20+ years experience</span>
+        <span class="intro-tag">North America</span>
+        <span class="intro-tag">30–200 employees</span>
+        <span class="intro-tag">Done-for-you</span>
+      </div>
+      <div class="intro-links">
+        <a href="free-audit.html" class="btn-primary">
+          Book your free audit
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/colinedwards/" target="_blank" class="btn-ghost">
+          LinkedIn profile
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6 3H3v10h10v-3M10 3h3v3M13 3L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: avatar + stats -->
+    <div class="intro-right">
+      <div class="avatar-block">
+        <div class="avatar-frame">
+          <div class="avatar-grid"></div>
+          <!-- Circuit decorative -->
+          <div class="avatar-circuit">
+            <svg width="80%" height="80%" viewBox="0 0 200 260" fill="none" opacity="0.15">
+              <line x1="0" y1="40" x2="200" y2="40" stroke="#F5702A" stroke-width="1"/>
+              <line x1="0" y1="80" x2="200" y2="80" stroke="#F5702A" stroke-width="1"/>
+              <line x1="0" y1="120" x2="200" y2="120" stroke="#F5702A" stroke-width="1"/>
+              <line x1="0" y1="160" x2="200" y2="160" stroke="#F5702A" stroke-width="1"/>
+              <line x1="0" y1="200" x2="200" y2="200" stroke="#F5702A" stroke-width="1"/>
+              <line x1="40" y1="0" x2="40" y2="260" stroke="#F5702A" stroke-width="1"/>
+              <line x1="80" y1="0" x2="80" y2="260" stroke="#F5702A" stroke-width="1"/>
+              <line x1="120" y1="0" x2="120" y2="260" stroke="#F5702A" stroke-width="1"/>
+              <line x1="160" y1="0" x2="160" y2="260" stroke="#F5702A" stroke-width="1"/>
+              <path d="M40 200 L40 160 L80 160 L80 120 L120 120 L120 80 L160 80 L160 40" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="40" cy="160" r="4" fill="#F5702A"/>
+              <circle cx="80" cy="120" r="4" fill="#F5702A"/>
+              <circle cx="120" cy="80" r="4" fill="#F5702A"/>
+              <circle cx="160" cy="40" r="6" fill="#F5702A"/>
+              <path d="M157 37 L163 37 L160 32Z" fill="#F5702A"/>
+            </svg>
+          </div>
+          <div class="avatar-initials">CE</div>
+          <div class="avatar-caption">
+            <div class="avatar-name">Colin Edwards</div>
+            <div class="avatar-title">Founder & Lead Systems Integrator</div>
+            <div class="avatar-location">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="5" r="2" stroke="currentColor" stroke-width="1"/><path d="M6 1C3.79 1 2 2.79 2 5c0 3 4 7 4 7s4-4 4-7c0-2.21-1.79-4-4-4z" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+              Vancouver, BC · Canada
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="avatar-stats">
+        <div class="avatar-stat">
+          <div class="avatar-stat-val">20+</div>
+          <div class="avatar-stat-label">Years in tech</div>
+        </div>
+        <div class="avatar-stat">
+          <div class="avatar-stat-val">23+</div>
+          <div class="avatar-stat-label">Platforms</div>
+        </div>
+        <div class="avatar-stat">
+          <div class="avatar-stat-val">N. Am.</div>
+          <div class="avatar-stat-label">Coverage</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ WHY I STARTED ══════════ -->
+<div class="why-section">
+  <div class="why-inner">
+    <div class="why-left">
+      <div class="eyebrow">The origin story</div>
+      <h2 class="why-label">Why we built<br><span class="accent">Rocket Routines</span></h2>
+      <div class="why-quote">
+        <div class="why-quote-text">"The businesses that need automation the most are exactly the ones who can't afford a dev team — and can't get enterprise software to fit their specific process."</div>
+      </div>
+    </div>
+    <div class="why-right">
+      <p class="why-para">
+        Our founder Colin Edwards spent over 20 years working across automotive e-commerce, supply chain, and operations — building ERP integrations, supplier data pipelines, e-commerce platforms, and the automation layer that ties them together. That work was done for employers who had the budget for a full technical team.
+      </p>
+      <p class="why-para">
+        What kept showing up were the businesses just below that level — <strong>30 to 200 employees, doing $3M to $30M in revenue</strong> — drowning in exactly the same manual work. Real operational complexity, real costs from inefficiency, and no one to fix it affordably. Enterprise software was too expensive and too rigid. Freelancers built one thing and left. Agencies pitched decks and delivered slowly.
+      </p>
+      <p class="why-para">
+        Rocket Routines was built to fill that gap. <strong>Not just automating individual workflows</strong> — but designing the end-to-end growth system: from how leads come in, to how they're processed, to how the business operates once they become clients. Our team handles everything — strategy, build, and ongoing maintenance — so nothing falls through the cracks.
+      </p>
+      <p class="why-para">
+        The Pilot tier exists because we know what it's like to ask a business to trust a new partner with their operations. <strong>Start small, prove it works, then build the system.</strong> That's the commitment we make to every client from day one.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CAREER TIMELINE ══════════ -->
+<div class="career-section">
+  <div class="section-header">
+    <div class="eyebrow">Leadership experience</div>
+    <h2 class="section-title">The background behind<br>Rocket Routines</h2>
+    <p class="section-sub">Colin leads every client engagement — bringing 20+ years of hands-on technical experience across automotive, e-commerce, logistics, and SaaS.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="tl-node current">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="tl-content">
+        <div class="tl-period">2026 → Present</div>
+        <div class="tl-role">Founder & Growth Systems Integrator</div>
+        <div class="tl-company">Rocket Routines · Vancouver, BC</div>
+        <div class="tl-desc">Building end-to-end growth systems for 30–200 person SMBs across North America. From lead generation through operational automation — done-for-you, maintained monthly, and expanded as businesses grow.</div>
+        <div class="tl-tags">
+          <span class="tl-tag orange">N8N</span>
+          <span class="tl-tag orange">ClickFunnels</span>
+          <span class="tl-tag orange">Close.com</span>
+          <span class="tl-tag orange">Google Ads</span>
+          <span class="tl-tag orange">Python</span>
+          <span class="tl-tag orange">REST APIs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-node">
+        <svg width="14" height="14" viewBox="0 0 64 64" fill="none">
+          <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="56" cy="14" r="4" fill="#F5702A"/>
+        </svg>
+      </div>
+      <div class="tl-content">
+        <div class="tl-period">Prior · 10+ years</div>
+        <div class="tl-role">Automotive E-commerce & ERP Integration</div>
+        <div class="tl-company">Automotive Industry · Canada & North America</div>
+        <div class="tl-desc">Built e-commerce platforms, supplier data file systems, and deep ERP integrations for automotive businesses. Managed large-scale product catalogs, multi-channel inventory sync, and the API layer connecting storefronts to back-end systems.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">SAP</span>
+          <span class="tl-tag">NetSuite</span>
+          <span class="tl-tag">Microsoft Dynamics</span>
+          <span class="tl-tag">E-commerce</span>
+          <span class="tl-tag">Supplier Catalogs</span>
+          <span class="tl-tag">CSV Pipelines</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-node">
+        <svg width="14" height="14" viewBox="0 0 64 64" fill="none">
+          <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="56" cy="14" r="4" fill="#F5702A"/>
+        </svg>
+      </div>
+      <div class="tl-content">
+        <div class="tl-period">Prior · Ongoing</div>
+        <div class="tl-role">Operations & Productivity Platform Integrations</div>
+        <div class="tl-company">Professional Services, SaaS & HR Tech</div>
+        <div class="tl-desc">Built data pipelines and automation workflows connecting HR, resource planning, and productivity platforms. Deep hands-on work with Float, Airtable, BambooHR, Lattice, and Google Workspace — the operational tools that most SMBs run on.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Float</span>
+          <span class="tl-tag">Airtable</span>
+          <span class="tl-tag">BambooHR</span>
+          <span class="tl-tag">Lattice</span>
+          <span class="tl-tag">Google Workspace</span>
+          <span class="tl-tag">Zapier</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-node">
+        <svg width="14" height="14" viewBox="0 0 64 64" fill="none">
+          <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="56" cy="14" r="4" fill="#F5702A"/>
+        </svg>
+      </div>
+      <div class="tl-content">
+        <div class="tl-period">Across all roles</div>
+        <div class="tl-role">Paid Advertising & Lead Generation</div>
+        <div class="tl-company">Google Ads · Instagram Ads · Web Scraping</div>
+        <div class="tl-desc">Ran Google Ads and Instagram Ads campaigns across multiple industries. Built web scraping and Google Maps lead generation workflows — creating prospect lists and feeding them directly into CRM sequences. The capability that completes the growth system loop.</div>
+        <div class="tl-tags">
+          <span class="tl-tag">Google Ads</span>
+          <span class="tl-tag">Instagram Ads</span>
+          <span class="tl-tag">Google Maps Scraping</span>
+          <span class="tl-tag">Web Scraping</span>
+          <span class="tl-tag">Python</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ TECH STACK ══════════ -->
+<div class="stack-section">
+  <div class="section-header" style="position:relative; z-index:1;">
+    <div class="eyebrow">Our technical depth</div>
+    <h2 class="section-title">The platforms our team works with<br>every day</h2>
+    <p class="section-sub">Not a checklist — platforms we've built real production systems with. If it has an API or documentation, we can connect it.</p>
+  </div>
+
+  <div class="stack-grid">
+    <div class="stack-card">
+      <div class="stack-cat">Automation</div>
+      <div class="stack-name">N8N</div>
+      <div class="stack-desc">Primary workflow engine for complex, multi-step automations</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Automation</div>
+      <div class="stack-name">Zapier</div>
+      <div class="stack-desc">SaaS connectors and simpler integration bridges</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Funnels</div>
+      <div class="stack-name">ClickFunnels</div>
+      <div class="stack-desc">Lead capture, landing pages, and top-of-funnel automation</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">CRM</div>
+      <div class="stack-name">Close.com</div>
+      <div class="stack-desc">Sales CRM — lead routing, pipeline sync, and reporting</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">CRM</div>
+      <div class="stack-name">Pipedrive</div>
+      <div class="stack-desc">Visual pipeline automation and deal stage triggers</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Data</div>
+      <div class="stack-name">Airtable</div>
+      <div class="stack-desc">Ops database, project tracking, and structured workflow data</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Productivity</div>
+      <div class="stack-name">Google Workspace</div>
+      <div class="stack-desc">Gmail, Sheets, Drive, Calendar — connected to everything</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Productivity</div>
+      <div class="stack-name">Microsoft 365</div>
+      <div class="stack-desc">Outlook, Teams, SharePoint, Excel automation workflows</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Resource Planning</div>
+      <div class="stack-name">Float</div>
+      <div class="stack-desc">Capacity planning data sync and dashboard pipelines</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">HR</div>
+      <div class="stack-name">BambooHR</div>
+      <div class="stack-desc">Onboarding automation and employee lifecycle workflows</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Performance</div>
+      <div class="stack-name">Lattice</div>
+      <div class="stack-desc">Review cycle triggers and performance data pipelines</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Wellness</div>
+      <div class="stack-name">JaneApp</div>
+      <div class="stack-desc">Gap automations for health & wellness clinics</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Fitness</div>
+      <div class="stack-name">Mariana Tek</div>
+      <div class="stack-desc">Membership flows and multi-location reporting for studios</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">ERP</div>
+      <div class="stack-name">SAP · NetSuite · Dynamics</div>
+      <div class="stack-desc">Enterprise ERP integrations — data extraction and downstream sync</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Accounting</div>
+      <div class="stack-name">QuickBooks</div>
+      <div class="stack-desc">Invoice automation and accounting system sync</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-cat">Developer</div>
+      <div class="stack-name">Python · REST APIs</div>
+      <div class="stack-desc">Complex data processing, large datasets, and custom integrations</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ HOW I WORK ══════════ -->
+<div class="values-section">
+  <div class="section-header" style="position:relative; z-index:1;">
+    <div class="eyebrow">How we work</div>
+    <h2 class="section-title">What you can expect<br>working with us</h2>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">We diagnose before we build</div>
+      <div class="value-body">The free audit isn't a sales call — it's a genuine diagnostic. We map your current systems, find the real bottlenecks, and tell you honestly what automation would and wouldn't fix. Sometimes the answer is simpler than you think.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">We own the outcome, not just the output</div>
+      <div class="value-body">Most contractors build something and hand it over. We stay on retainer because the systems need to be maintained, monitored, and expanded as your business changes. Your growth is the measure of success — not the number of workflows built.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">We operate with minimal friction</div>
+      <div class="value-body">One kickoff call. Milestone updates. Monthly reports. You're not our project manager — we figure things out independently and bring you the outcome, not the process. Your time is too valuable to spend on status meetings.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <div class="value-title">We price honestly</div>
+      <div class="value-body">Fixed setup fees. Flat monthly retainers. No hourly billing, no "scope creep" surprises. What we quote is what you pay. The Pilot tier exists because we'd rather earn your trust with a small win than ask for a big commitment upfront.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">05</div>
+      <div class="value-title">You own everything we build</div>
+      <div class="value-body">Every workflow, credential, and document is yours. If we ever stop working together, you leave with a fully documented system and a handover session. We build things that belong to you — not things that keep you dependent on us.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">06</div>
+      <div class="value-title">We can connect any platform</div>
+      <div class="value-body">Twenty years of reading API documentation means our team can pick up almost any platform quickly. If your tool isn't on our list, tell us what it does and we'll figure out how to connect it. Niche software is usually where the best automation opportunities hide.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CTA ══════════ -->
+<div class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="eyebrow" style="margin-bottom:14px;">Work with us</div>
+      <h2 class="cta-h2">Let's map your<br>automation opportunities.</h2>
+      <p class="cta-body">The free audit is 30 minutes via Google Meet. Our team will map your current systems, identify your top bottlenecks, and show you what a growth system would look like for your specific business — no pitch, no obligation.</p>
+      <div class="cta-btns">
+        <a href="free-audit.html" class="btn-primary">
+          Book your free audit
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="services.html" class="btn-ghost">See services & pricing</a>
+      </div>
+    </div>
+    <div class="cta-right">
+      <div class="cta-right-inner">
+        <h3>What the audit includes</h3>
+        <ul class="audit-list">
+          <li>
+            <div class="audit-check"><svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            30 minutes via Google Meet — no preparation required
+          </li>
+          <li>
+            <div class="audit-check"><svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Current tool stack mapped and gaps identified
+          </li>
+          <li>
+            <div class="audit-check"><svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Top 3 automation opportunities ranked by impact
+          </li>
+          <li>
+            <div class="audit-check"><svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Written output delivered within 48 hours
+          </li>
+          <li>
+            <div class="audit-check"><svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            Honest recommendation — even if it's "not yet"
+          </li>
+        </ul>
+        <a href="free-audit.html" class="btn-primary" style="width:100%; justify-content:center;">
+          Book your free audit
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark">Rocket<span>Routines</span></div>
+      <div class="footer-tagline">Growth Systems Integrator · North America</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="free-audit.html">Free audit</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 Rocket Routines. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '56px' : '68px';
+    nav.style.borderBottomColor = window.scrollY > 60 ? 'rgba(245,112,42,0.15)' : 'rgba(245,112,42,0.1)';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.timeline-item, .stack-card, .value-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = `opacity 0.5s ease ${(i % 6) * 0.07}s, transform 0.5s ease ${(i % 6) * 0.07}s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
