@@ -779,7 +779,7 @@
 
           <form id="audit-form" action="https://formspree.io/f/xdayrlev" method="POST" onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Free Audit Request — Rocket Routines">
-            <input type="hidden" name="_next" value="https://rocketroutines.com/thank-you.html">
+            <input type="hidden" name="_next" value="https://rocketroutines.com/free-audit.html?success=true">
             <div class="field-group">
 
               <div class="field-row">
@@ -904,20 +904,21 @@
 
 <script>
   function handleSubmit(e) {
-    e.preventDefault();
-
+    // Let the form submit natively to Formspree
+    // Show loading state on button
     const btn = document.getElementById('submit-btn');
     btn.textContent = 'Sending...';
     btn.disabled = true;
     btn.style.opacity = '0.7';
+    // Form will POST to Formspree and redirect back
+    // Do NOT call e.preventDefault() — let it submit
+  }
 
-    // Simulate submission (replace with Formspree/Web3Forms action on deploy)
-    setTimeout(() => {
-      document.getElementById('form-content').style.display = 'none';
-      const success = document.getElementById('success-state');
-      success.style.display = 'block';
-      success.style.animation = 'fadeUp 0.5s ease both';
-    }, 800);
+  // Show success state if redirected back from Formspree
+  if (window.location.search.includes('success')) {
+    document.getElementById('form-content').style.display = 'none';
+    const success = document.getElementById('success-state');
+    success.style.display = 'block';
   }
 
   // Add subtle input focus animation
