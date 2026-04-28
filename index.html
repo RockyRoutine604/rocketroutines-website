@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocket Routines — Growth Systems Integrator</title>
+<meta name="description" content="We design and build end-to-end growth systems for 30–200 person businesses. From lead generation through operational automation — done-for-you, maintained monthly.">
+<!-- Open Graph / LinkedIn / Social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rocket Routines">
+<meta property="og:url" content="https://rocketroutines.com/">
+<meta property="og:title" content="Rocket Routines — Growth Systems Integrator">
+<meta property="og:description" content="We design and build end-to-end growth systems for 30–200 person businesses. From lead generation through operational automation — done-for-you, maintained monthly.">
+<meta property="og:image" content="https://rocketroutines.com/og-image.jpg">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rocket Routines — Growth Systems Integrator">
+<meta name="twitter:description" content="We design and build end-to-end growth systems for 30–200 person businesses. From lead generation through operational automation — done-for-you, maintained monthly.">
+<meta name="twitter:image" content="https://rocketroutines.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #0A1628;
+    --navymid:  #112240;
+    --navylit:  #1E3A5F;
+    --orange:   #F5702A;
+    --orangelt: #FF8C4B;
+    --white:    #F8FAFC;
+    --slate:    #64748B;
+    --silver:   #CBD5E1;
+    --grid-col: rgba(245,112,42,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Circuit Grid Utility ── */
+  .circuit-bg {
+    background-image:
+      linear-gradient(var(--grid-col) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-col) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ── Typography ── */
+  .syne { font-family: 'Syne', sans-serif; }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--orangelt); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); background: rgba(245,112,42,0.08); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 5%;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(245,112,42,0.1);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-wordmark span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    padding: 9px 20px;
+    border-radius: 6px;
+    letter-spacing: 0.02em !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--orangelt); color: white !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Animated circuit trace */
+  .hero-circuit {
+    position: absolute;
+    top: 0; right: 0;
+    width: 52%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.7;
+  }
+
+  .hero-circuit svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circuit-path {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: drawPath 2.4s ease forwards;
+  }
+
+  .circuit-path-2 {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: drawPath 2s ease 0.4s forwards;
+  }
+
+  .circuit-path-3 {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: drawPath 1.8s ease 0.8s forwards;
+  }
+
+  @keyframes drawPath {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .node-pulse {
+    animation: nodePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { opacity: 0.6; r: 4; }
+    50%       { opacity: 1;   r: 6; }
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  .hero-h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(42px, 5.5vw, 72px);
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .hero-h1 .accent { color: var(--orange); }
+
+  .hero-sub {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 0.5px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--orange);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.04em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section {
+    padding: 100px 5%;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(30px, 3.5vw, 46px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-top: 12px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-top: 16px;
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navymid); position: relative; overflow: hidden; }
+
+  #services::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  #services .section-header { position: relative; z-index: 1; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card {
+    background: var(--navy);
+    border: 0.5px solid rgba(245,112,42,0.15);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover { border-color: rgba(245,112,42,0.4); transform: translateY(-4px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 16px;
+  }
+
+  .service-card-inner { position: relative; z-index: 1; }
+
+  .service-type {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    background: rgba(245,112,42,0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 0.5px solid rgba(245,112,42,0.2);
+  }
+
+  .service-mark {
+    margin-bottom: 20px;
+  }
+
+  .service-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .service-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .feature-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    background: rgba(245,112,42,0.15);
+    border: 0.5px solid rgba(245,112,42,0.35);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-dot::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    background: var(--orange);
+  }
+
+  .service-price {
+    padding-top: 24px;
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  .price-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .price-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .price-val span { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.4); }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--navy); position: relative; overflow: hidden; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .steps-connector {
+    position: absolute;
+    top: 36px;
+    left: calc(33.33% / 2);
+    right: calc(33.33% / 2);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(245,112,42,0), rgba(245,112,42,0.4), rgba(245,112,42,0.4), rgba(245,112,42,0));
+  }
+
+  .step {
+    padding: 0 32px 0 0;
+    position: relative;
+  }
+
+  .step:last-child { padding-right: 0; }
+
+  .step-num-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .step-num {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(245,112,42,0.1);
+    border: 1px solid rgba(245,112,42,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--orange);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(245,112,42,0.3), rgba(245,112,42,0));
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+
+  .step-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .step-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.4);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── INDUSTRIES ── */
+  #industries { background: var(--navymid); position: relative; overflow: hidden; }
+
+  #industries::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  #industries .section-header { position: relative; z-index: 1; }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .industry-card {
+    background: rgba(10,22,40,0.7);
+    border: 0.5px solid rgba(245,112,42,0.12);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+
+  .industry-card:hover {
+    border-color: rgba(245,112,42,0.35);
+    background: rgba(10,22,40,0.9);
+  }
+
+  .industry-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(245,112,42,0.1);
+    border: 0.5px solid rgba(245,112,42,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .industry-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .industry-pains {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .industry-pains li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .industry-pains li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 10px;
+    top: 1px;
+  }
+
+  /* ── AUDIT CTA ── */
+  #audit {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 5%;
+  }
+
+  .audit-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(245,112,42,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,112,42,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .audit-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(245,112,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .audit-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .audit-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .audit-h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .audit-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .audit-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 44px;
+  }
+
+  .audit-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .audit-check {
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    background: rgba(245,112,42,0.15);
+    border: 0.5px solid rgba(245,112,42,0.35);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .audit-form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .audit-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .audit-input::placeholder { color: rgba(255,255,255,0.25); }
+  .audit-input:focus { border-color: var(--orange); }
+
+  .audit-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 14px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── INTEGRATIONS STRIP ── */
+  #integrations {
+    background: #060E1A;
+    padding: 56px 5%;
+    border-top: 0.5px solid rgba(245,112,42,0.08);
+    border-bottom: 0.5px solid rgba(245,112,42,0.08);
+  }
+
+  .integrations-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 28px;
+  }
+
+  .integrations-track {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .integration-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.09);
+    border-radius: 6px;
+    padding: 8px 14px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+
+  .integration-pill:hover {
+    color: rgba(255,255,255,0.8);
+    border-color: rgba(245,112,42,0.3);
+    background: rgba(245,112,42,0.06);
+  }
+
+  .integration-pill .pip {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .integration-pill.featured {
+    color: rgba(245,112,42,0.8);
+    border-color: rgba(245,112,42,0.25);
+    background: rgba(245,112,42,0.07);
+  }
+
+  .integration-pill.featured .pip {
+    opacity: 1;
+  }
+
+  .integrations-note {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    margin-top: 22px;
+    font-weight: 300;
+  }
+
+  .integrations-note span { color: var(--orange); opacity: 0.7; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060E1A;
+    padding: 48px 5%;
+    border-top: 0.5px solid rgba(245,112,42,0.1);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-wordmark span { color: var(--orange); }
+
+  .footer-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--orange); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+      <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="0"  y1="56" x2="64" y2="56" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <line x1="56" y1="0" x2="56" y2="64" stroke="rgba(245,112,42,0.18)" stroke-width="1"/>
+      <path d="M14 56 L14 42 L28 42 L28 28 L42 28 L42 14" stroke="#F5702A" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+      <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="28" cy="42" r="2.2" fill="#F5702A" opacity="0.5"/>
+      <circle cx="42" cy="28" r="2.2" fill="#F5702A" opacity="0.75"/>
+      <circle cx="56" cy="14" r="3"   fill="#F5702A"/>
+      <path d="M53 11 L59 11 L56 7Z" fill="#F5702A"/>
+    </svg>
+    <div>
+      <div class="nav-wordmark">Rocket<span>Routines</span></div>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="how-it-works.html">How it works</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="integrations.html">Integrations</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="free-audit.html" class="nav-cta">Free audit</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+
+  <!-- Animated circuit on right -->
+  <div class="hero-circuit">
+    <svg viewBox="0 0 600 700" fill="none" preserveAspectRatio="xMaxYMid slice">
+      <!-- Background grid lines -->
+      <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="0" y1="200" x2="600" y2="200" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="0" y1="300" x2="600" y2="300" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="0" y1="400" x2="600" y2="400" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="0" y1="500" x2="600" y2="500" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="0" y1="600" x2="600" y2="600" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="100" y1="0" x2="100" y2="700" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="700" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="300" y1="0" x2="300" y2="700" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="400" y1="0" x2="400" y2="700" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+      <line x1="500" y1="0" x2="500" y2="700" stroke="rgba(245,112,42,0.06)" stroke-width="1"/>
+
+      <!-- Dim background paths -->
+      <path d="M100 600 L100 500 L200 500 L200 400 L300 400 L300 300 L400 300 L400 200" stroke="rgba(245,112,42,0.12)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M300 600 L300 500 L400 500 L400 400 L500 400 L500 300" stroke="rgba(245,112,42,0.08)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Primary active path -->
+      <path class="circuit-path" d="M200 700 L200 600 L300 600 L300 500 L400 500 L400 400 L500 400 L500 300 L500 200" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Secondary path -->
+      <path class="circuit-path-2" d="M400 700 L400 600 L500 600 L500 500" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+
+      <!-- Third path -->
+      <path class="circuit-path-3" d="M100 400 L100 300 L200 300 L200 200 L300 200" stroke="#F5702A" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+
+      <!-- Junction nodes -->
+      <circle cx="200" cy="600" r="4" fill="#F5702A" opacity="0.4"/>
+      <circle cx="300" cy="500" r="4" fill="#F5702A" opacity="0.55"/>
+      <circle cx="400" cy="400" r="5" fill="#F5702A" opacity="0.7"/>
+      <circle cx="500" cy="300" r="5" fill="#F5702A" opacity="0.85"/>
+      <!-- Terminal node -->
+      <circle class="node-pulse" cx="500" cy="200" r="7" fill="#F5702A"/>
+      <path d="M493 190 L507 190 L500 180Z" fill="#F5702A"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="eyebrow">Growth Systems Integrator</span>
+    </div>
+
+    <h1 class="hero-h1">
+      We don't just<br>
+      automate your business.<br>
+      <span class="accent">We design the system<br>that runs it.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Most businesses are drowning in manual work their software should be doing.
+      Rocket Routines builds the <strong>end-to-end growth systems</strong> — from
+      lead generation through operational automation — that free your team to do
+      the work only humans can do.
+    </p>
+
+    <div class="hero-btns">
+      <a href="free-audit.html" class="btn-primary">
+        Book your free audit
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="services.html" class="btn-ghost">
+        See our services
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">$2.5K+</div>
+        <div class="stat-label">Monthly retainer value</div>
+      </div>
+      <div>
+        <div class="stat-val">30–200</div>
+        <div class="stat-label">Employee sweet spot</div>
+      </div>
+      <div>
+        <div class="stat-val">North Am.</div>
+        <div class="stat-label">Service coverage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SERVICES ══════════════════ -->
+<section id="services">
+  <div class="section-header">
+    <div class="eyebrow">What we build</div>
+    <h2 class="section-title">Two ways we work<br>with your business</h2>
+    <p class="section-sub">Every engagement starts with a free 30-minute audit. From there, we tailor the engagement to where you are.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Type 1 -->
+    <div class="service-card">
+      <div class="service-card-grid"></div>
+      <div class="service-card-inner">
+        <div class="service-type">Type 01 — Automation Retainer</div>
+
+        <div class="service-mark">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="12" fill="rgba(245,112,42,0.08)" stroke="rgba(245,112,42,0.2)" stroke-width="0.5"/>
+            <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <path d="M14 56 L14 42 L28 42 L28 28 L42 28 L42 14" stroke="#F5702A" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="42" r="2.5" fill="#F5702A" opacity="0.5"/>
+            <circle cx="28" cy="28" r="2.5" fill="#F5702A" opacity="0.7"/>
+            <circle cx="42" cy="14" r="3.5" fill="#F5702A"/>
+            <path d="M39 11 L45 11 L42 7Z" fill="#F5702A"/>
+          </svg>
+        </div>
+
+        <h3 class="service-name">Process exists.<br>Automate it.</h3>
+        <p class="service-desc">You have established systems and a team doing work manually that software should be handling. We map the gaps, build the automations, and maintain them — so your people can focus on higher-value work.</p>
+
+        <ul class="service-features">
+          <li><div class="feature-dot"></div>CRM automation & lead routing</li>
+          <li><div class="feature-dot"></div>Invoice & billing workflows</li>
+          <li><div class="feature-dot"></div>Data sync across your platforms</li>
+          <li><div class="feature-dot"></div>Document generation & e-signatures</li>
+          <li><div class="feature-dot"></div>Reporting dashboards & alerts</li>
+          <li><div class="feature-dot"></div>Onboarding & offboarding workflows</li>
+          <li><div class="feature-dot"></div>JaneApp & Mariana Tek gap automations</li>
+        </ul>
+
+        <div class="service-price">
+          <div class="price-label">Monthly retainer from</div>
+          <div class="price-val">$1,500 <span>/ month · 90-day pilot available</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Type 2 -->
+    <div class="service-card">
+      <div class="service-card-grid"></div>
+      <div class="service-card-inner">
+        <div class="service-type">Type 02 — Custom Build</div>
+
+        <div class="service-mark">
+          <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+            <rect width="64" height="64" rx="12" fill="rgba(245,112,42,0.08)" stroke="rgba(245,112,42,0.2)" stroke-width="0.5"/>
+            <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.12)" stroke-width="0.8"/>
+            <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 56 L14 42 L28 42" stroke="#F5702A" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
+            <circle cx="28" cy="42" r="2.5" fill="#F5702A" opacity="0.5"/>
+            <circle cx="42" cy="28" r="2.5" fill="#F5702A" opacity="0.7"/>
+            <circle cx="56" cy="14" r="3.5" fill="#F5702A"/>
+            <path d="M53 11 L59 11 L56 7Z" fill="#F5702A"/>
+          </svg>
+        </div>
+
+        <h3 class="service-name">No off-the-shelf<br>solution exists.</h3>
+        <p class="service-desc">You've tried every SaaS tool and none of them fit. Your process is too unique, your data too complex, or your integrations too specific. We build it from scratch — purpose-designed for how your business actually works.</p>
+
+        <ul class="service-features">
+          <li><div class="feature-dot"></div>ERP ↔ e-commerce integrations</li>
+          <li><div class="feature-dot"></div>Custom data pipelines & large datasets</li>
+          <li><div class="feature-dot"></div>Supplier catalog & inventory systems</li>
+          <li><div class="feature-dot"></div>AI-powered operational workflows</li>
+          <li><div class="feature-dot"></div>Bespoke client or dealer portals</li>
+          <li><div class="feature-dot"></div>Multi-platform API orchestration</li>
+        </ul>
+
+        <div class="service-price">
+          <div class="price-label">Setup from · retainer from</div>
+          <div class="price-val">$5,000 <span>+ $4,000 / month</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+<section id="how">
+  <div class="section-header">
+    <div class="eyebrow">The process</div>
+    <h2 class="section-title">From broken manual work<br>to a system that runs itself</h2>
+    <p class="section-sub">Three phases. No surprises. Retainer starts only when you're seeing results.</p>
+  </div>
+
+  <div class="steps-grid">
+
+    <div class="step">
+      <div class="step-num-wrap">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+      </div>
+      <h3 class="step-title">Free automation audit</h3>
+      <p class="step-desc">A focused 30-minute diagnostic. We map your current tools, identify your top three manual bottlenecks, and quantify exactly what they're costing you in time and money. No pitch — just clarity.</p>
+      <div class="step-tags">
+        <span class="step-tag">30 min call</span>
+        <span class="step-tag">no obligation</span>
+        <span class="step-tag">written output</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num-wrap">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+      </div>
+      <h3 class="step-title">Design & build</h3>
+      <p class="step-desc">We scope the system, agree on a setup fee, and build. Whether it's a set of N8N workflows, a ClickFunnels funnel, or a full API integration — we deliver working automations, not presentations about them.</p>
+      <div class="step-tags">
+        <span class="step-tag">N8N</span>
+        <span class="step-tag">ClickFunnels</span>
+        <span class="step-tag">APIs</span>
+        <span class="step-tag">AI</span>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num-wrap">
+        <div class="step-num">03</div>
+      </div>
+      <h3 class="step-title">Retain & expand</h3>
+      <p class="step-desc">Once live, we stay on retainer to monitor, maintain, and expand the system. Most clients add new automations every quarter. The system grows as your business grows — and we're embedded as your ops partner.</p>
+      <div class="step-tags">
+        <span class="step-tag">done-for-you</span>
+        <span class="step-tag">monthly reporting</span>
+        <span class="step-tag">ongoing builds</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ INDUSTRIES ══════════════════ -->
+<section id="industries">
+  <div class="section-header">
+    <div class="eyebrow">Industries</div>
+    <h2 class="section-title">Built for businesses with<br>30–200 employees</h2>
+    <p class="section-sub">Large enough to have real operational complexity. Small enough that no one has built the systems to handle it yet. Including gyms and wellness clinics running JaneApp or Mariana Tek — we close the gaps those platforms leave open.</p>
+  </div>
+
+  <div class="industries-grid">
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2" y="6" width="18" height="14" rx="2" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <path d="M2 10H20" stroke="#F5702A" stroke-width="1.2"/>
+          <path d="M7 2L7 6M15 2L15 6" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="7" cy="14" r="1.5" fill="#F5702A" opacity="0.7"/>
+          <circle cx="11" cy="14" r="1.5" fill="#F5702A" opacity="0.7"/>
+          <circle cx="15" cy="14" r="1.5" fill="#F5702A" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="industry-name">Professional Services</div>
+      <ul class="industry-pains">
+        <li>Client intake & document collection</li>
+        <li>Contract generation & e-signatures</li>
+        <li>Billing reconciliation workflows</li>
+        <li>Staff onboarding automation</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11 3C11 3 5 6 5 12C5 15.31 7.69 18 11 18C14.31 18 17 15.31 17 12C17 6 11 3 11 3Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          <path d="M8 12H14" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M11 9V15" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M6 19H16" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="industry-name">Gyms & Wellness Clinics</div>
+      <ul class="industry-pains">
+        <li>JaneApp & Mariana Tek gap automations</li>
+        <li>Lead follow-up & re-engagement flows</li>
+        <li>Membership & booking notifications</li>
+        <li>Cross-platform reporting & analytics</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M3 18L11 4L19 18H3Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          <path d="M11 10V14" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="11" cy="16" r="1" fill="#F5702A"/>
+        </svg>
+      </div>
+      <div class="industry-name">Real Estate</div>
+      <ul class="industry-pains">
+        <li>Lead capture → CRM routing</li>
+        <li>Transaction checklist automation</li>
+        <li>Listing update notifications</li>
+        <li>Agent onboarding workflows</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2" y="10" width="8" height="10" rx="1" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <rect x="12" y="6" width="8" height="14" rx="1" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <path d="M6 10V7C6 5.34 7.34 4 9 4H13" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          <path d="M13 4L15 2M13 4L15 6" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="industry-name">Manufacturing & Logistics</div>
+      <ul class="industry-pains">
+        <li>Inventory sync across platforms</li>
+        <li>Order-to-invoice automation</li>
+        <li>Supplier & PO management</li>
+        <li>Large dataset reporting</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="8" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <path d="M11 7V11L14 13" stroke="#F5702A" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="11" cy="11" r="1.5" fill="#F5702A"/>
+        </svg>
+      </div>
+      <div class="industry-name">E-commerce & Retail</div>
+      <ul class="industry-pains">
+        <li>ERP ↔ storefront sync</li>
+        <li>Supplier catalog automation</li>
+        <li>Order & returns processing</li>
+        <li>Inventory threshold alerts</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <rect x="12" y="3" width="7" height="7" rx="1.5" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <rect x="3" y="12" width="7" height="7" rx="1.5" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+          <rect x="12" y="12" width="7" height="7" rx="1.5" stroke="#F5702A" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <div class="industry-name">SaaS & Technology</div>
+      <ul class="industry-pains">
+        <li>Customer onboarding flows</li>
+        <li>Usage-based billing automation</li>
+        <li>Support ticket triage & routing</li>
+        <li>Cross-platform data sync</li>
+      </ul>
+    </div>
+
+    <div class="industry-card">
+      <div class="industry-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11 3L13.5 8.5L19.5 9L15.5 13L16.5 19L11 16.5L5.5 19L6.5 13L2.5 9L8.5 8.5L11 3Z" stroke="#F5702A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="industry-name">Financial Services</div>
+      <ul class="industry-pains">
+        <li>Client document automation</li>
+        <li>Compliance reporting workflows</li>
+        <li>Portfolio data aggregation</li>
+        <li>Onboarding & KYC automation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ INTEGRATIONS ══════════════════ -->
+<section id="integrations">
+  <div class="integrations-label">Platforms & tools we integrate with</div>
+  <div class="integrations-track">
+
+    <!-- Fitness / Wellness -->
+    <div class="integration-pill"><span class="pip"></span>JaneApp</div>
+    <div class="integration-pill"><span class="pip"></span>Mariana Tek</div>
+
+    <!-- Automation layer -->
+    <div class="integration-pill"><span class="pip"></span>N8N</div>
+    <div class="integration-pill"><span class="pip"></span>Zapier</div>
+    <div class="integration-pill"><span class="pip"></span>ClickFunnels</div>
+    <div class="integration-pill"><span class="pip"></span>Google App Script</div>
+
+    <!-- CRM -->
+    <div class="integration-pill"><span class="pip"></span>Close.com</div>
+
+    <!-- Data & productivity -->
+    <div class="integration-pill"><span class="pip"></span>Airtable</div>
+    <div class="integration-pill"><span class="pip"></span>Google Sheets</div>
+    <div class="integration-pill"><span class="pip"></span>Float</div>
+    <div class="integration-pill"><span class="pip"></span>CSV Pipelines</div>
+
+    <!-- HR & people ops -->
+    <div class="integration-pill"><span class="pip"></span>BambooHR</div>
+    <div class="integration-pill"><span class="pip"></span>Lattice</div>
+
+    <!-- Developer / API layer -->
+    <div class="integration-pill"><span class="pip"></span>REST APIs</div>
+    <div class="integration-pill"><span class="pip"></span>Python</div>
+
+    <!-- ERPs & accounting -->
+    <div class="integration-pill"><span class="pip"></span>QuickBooks</div>
+    <div class="integration-pill"><span class="pip"></span>NetSuite</div>
+    <div class="integration-pill"><span class="pip"></span>SAP</div>
+    <div class="integration-pill"><span class="pip"></span>Microsoft Dynamics</div>
+
+  </div>
+  <div class="integrations-note">Don't see your platform? <span>If there's an API or documentation, we can connect it.</span></div>
+</section>
+
+<!-- ══════════════════ AUDIT CTA ══════════════════ -->
+<section id="audit">
+  <div class="audit-bg"></div>
+  <div class="audit-glow"></div>
+
+  <div class="audit-inner">
+
+    <div class="audit-logo">
+      <svg width="56" height="56" viewBox="0 0 64 64" fill="none">
+        <line x1="0"  y1="14" x2="64" y2="14" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="0"  y1="28" x2="64" y2="28" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="0"  y1="42" x2="64" y2="42" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="0"  y1="56" x2="64" y2="56" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="14" y1="0" x2="14" y2="64" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="28" y1="0" x2="28" y2="64" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="42" y1="0" x2="42" y2="64" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <line x1="56" y1="0" x2="56" y2="64" stroke="rgba(245,112,42,0.15)" stroke-width="1"/>
+        <path d="M14 56 L14 42 L28 42 L28 28 L42 28 L42 14" stroke="#F5702A" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+        <path d="M28 56 L28 42 L42 42 L42 28 L56 28 L56 14" stroke="#F5702A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="28" cy="42" r="2.5" fill="#F5702A" opacity="0.5"/>
+        <circle cx="42" cy="28" r="2.5" fill="#F5702A" opacity="0.75"/>
+        <circle cx="56" cy="14" r="3.5" fill="#F5702A"/>
+        <path d="M53 11 L59 11 L56 7Z" fill="#F5702A"/>
+      </svg>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:16px;">Free automation audit</div>
+
+    <h2 class="audit-h2">
+      Stop losing hours every week<br>
+      to work software should be doing.
+    </h2>
+
+    <p class="audit-sub">Book a free 30-minute automation audit. We'll map your biggest manual bottlenecks, quantify what they're costing you, and show you exactly what a growth system would look like for your business.</p>
+
+    <ul class="audit-bullets">
+      <li>
+        <div class="audit-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        No sales pitch — just a diagnostic and a written output
+      </li>
+      <li>
+        <div class="audit-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        30 minutes via Google Meet — available across North America
+      </li>
+      <li>
+        <div class="audit-check">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5L4 7.5L8.5 2.5" stroke="#F5702A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        You'll leave with a clear picture of what's possible
+      </li>
+    </ul>
+
+    <div class="audit-form">
+      <input type="email" class="audit-input" placeholder="Your work email address">
+      <a href="free-audit.html" class="btn-primary" style="white-space:nowrap;">
+        Book your free audit
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <p class="audit-note">No commitment required. We work with businesses across North America.</p>
+
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark">Rocket<span>Routines</span></div>
+      <div class="footer-tagline">Growth Systems Integrator · North America</div>
+    </div>
+
+    <ul class="footer-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="industries.html">Industries</a></li>
+      <li><a href="integrations.html">Integrations</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="free-audit.html">Free audit</a></li>
+    </ul>
+
+    <div class="footer-copy">© 2026 Rocket Routines. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Animate sections on scroll
+  document.querySelectorAll('.service-card, .step, .industry-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+
+  // Stagger cards
+  document.querySelectorAll('.service-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.12}s`;
+  });
+
+  document.querySelectorAll('.step').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.15}s`;
+  });
+
+  document.querySelectorAll('.industry-card').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+
+  // Nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.height = '56px';
+      nav.style.borderBottomColor = 'rgba(245,112,42,0.15)';
+    } else {
+      nav.style.height = '68px';
+      nav.style.borderBottomColor = 'rgba(245,112,42,0.1)';
+    }
+  });
+</script>
+</body>
+</html>
