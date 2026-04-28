@@ -1089,19 +1089,18 @@
   <div class="hero-right" id="lead-form">
     <div class="lead-form-card">
       <div class="form-card-grid"></div>
-      <form action="https://formspree.io/f/xdayrlev" method="POST">
-            <div class="form-card-inner">
+      <div class="form-card-inner">
         <div class="form-card-eyebrow">Free strategy call</div>
         <h2 class="form-card-title">Let's map your funnel</h2>
         <p class="form-card-sub">30 minutes. No pitch. We'll audit your current lead flow and show you exactly what a high-converting funnel looks like for your business.</p>
 
         <div class="form-field">
           <label>Your name</label>
-          <input type="text" placeholder="Jane Smith">
+          <input type="text" name="name" placeholder="Jane Smith">
         </div>
         <div class="form-field">
           <label>Work email</label>
-          <input type="email" placeholder="jane@company.com">
+          <input type="email" name="email" placeholder="jane@company.com">
         </div>
         <div class="form-field">
           <label>Company / Website</label>
@@ -1444,6 +1443,44 @@
     el.style.transform = 'translateY(24px)';
     el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
     observer.observe(el);
+  });
+
+  // ── ClickFunnels lead form AJAX ──────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    var cfForm = document.getElementById('cf-lead-form');
+    if (cfForm) {
+      cfForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('cf-submit-btn');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+        try {
+          var response = await fetch(cfForm.action, {
+            method: 'POST',
+            body: new FormData(cfForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            document.getElementById('cf-form-content').style.display = 'none';
+            var success = document.getElementById('cf-success-state');
+            success.style.display = 'block';
+          } else {
+            var data = await response.json();
+            var msg = data.errors ? data.errors.map(function(e){ return e.message; }).join(', ') : 'Something went wrong. Please try again.';
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            alert(msg);
+          }
+        } catch (err) {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          alert('Network error — please check your connection and try again.');
+        }
+      });
+    }
   });
 
   // Nav shrink on scroll
