@@ -779,7 +779,6 @@
 
           <form id="audit-form" action="https://formspree.io/f/xdayrlev" method="POST" onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Free Audit Request — Rocket Routines">
-            <input type="hidden" name="_next" value="https://rocketroutines.com/free-audit.html?success=true">
             <div class="field-group">
 
               <div class="field-row">
@@ -903,22 +902,46 @@
 </div>
 
 <script>
-  function handleSubmit(e) {
-    // Let the form submit natively to Formspree
-    // Show loading state on button
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
-    // Form will POST to Formspree and redirect back
-    // Do NOT call e.preventDefault() — let it submit
-  }
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  // Show success state if redirected back from Formspree
-  if (window.location.search.includes('success')) {
-    document.getElementById('form-content').style.display = 'none';
-    const success = document.getElementById('success-state');
-    success.style.display = 'block';
+    const form = document.getElementById('audit-form');
+    const btn  = document.getElementById('submit-btn');
+
+    // Show loading state
+    btn.innerHTML = 'Sending…';
+    btn.disabled  = true;
+    btn.style.opacity = '0.7';
+
+    try {
+      const response = await fetch(form.action, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Hide form, show success state
+        document.getElementById('form-content').style.display = 'none';
+        const success = document.getElementById('success-state');
+        success.style.display = 'block';
+        success.style.animation = 'fadeUp 0.5s ease both';
+      } else {
+        const data = await response.json();
+        const msg = data.errors
+          ? data.errors.map(e => e.message).join(', ')
+          : 'Something went wrong. Please try again.';
+        btn.innerHTML = 'Try again';
+        btn.disabled  = false;
+        btn.style.opacity = '1';
+        alert(msg);
+      }
+    } catch (err) {
+      btn.innerHTML = 'Try again';
+      btn.disabled  = false;
+      btn.style.opacity = '1';
+      alert('Network error — please check your connection and try again.');
+    }
   }
 
   // Add subtle input focus animation
